@@ -1,0 +1,50 @@
+<app-m-site-wrapper>
+  <div class="container">
+    <div class="card-pinjaman">
+      <div class="row--space-between">
+        <div>
+          <p>Total Pinjaman</p>
+          <strong>Rp 2 Juta</strong>
+        </div>
+      </div>
+      <div class="row--space-between">
+        <div>
+          <p>Cicilan per Bulan</p>
+          <strong>Rp 482.985</strong>
+        </div>
+        <div>
+          <p>Lama cicilan</p>
+          <strong>6 Bulan</strong>
+        </div>
+      </div>
+    </div>
+    <div class="tab-bar__container">
+      <div class="tab-bar__button tab-bar__button--active">
+        <span class="tab-bar__button-text">Buat Akun</span>
+      </div>
+      <div class="tab-bar__button">
+        <span class="tab-bar__button-text">Masuk Akun</span>
+      </div>
+    </div>
+    <div class="form__container">
+      <form [formGroup]="profileForm">
+        <label for="name" class="form-label"> Nama sesuai KTP* </label>
+        <input type="text" [formControl]="name" id="name" class="form-input" />
+        <label class="form-label"> Nomor KTP (NIK)* </label>
+        <input type="text" [formControl]="nik" id="nik" class="form-input" />
+        <label class="form-label" class="form-label"> Nomor Handphone* </label>
+        <input type="text" [formControl]="phone" class="form-input" />
+        <label class="form-label">
+          Dari mana Anda mengetahui Tunaiku?*
+          <input type="text" [formControl]="source" class="form-input" />
+        </label>
+        <a
+          routerLink="/loan/create-account"
+          class="Button Button--primary Button--fullWidth"
+        >
+          Buat Akun!
+        </a>
+      </form>
+    </div>
+  </div>
+</app-m-site-wrapper>

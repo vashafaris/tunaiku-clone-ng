@@ -1,3 +1,108 @@
-<div>
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-</div>
+<app-navbar></app-navbar>
+<main class="Content home__container">
+  <div class="landing-hero__container">
+    <div class="Grids landing-hero__container--body">
+      <div class="Grid Grid-sm-6 Grid-md-5 landing-hero__container--info">
+        <div>
+          <h1 class="landing-hero__container--title">
+            Ajukan Pinjaman Online Tanpa Jaminan
+          </h1>
+        </div>
+        <p class="landing-hero__container--subtitle">
+          Hanya dengan KTP, dapatkan kredit tanpa agunan hingga
+          <strong>Rp20.000.000</strong>
+        </p>
+        <div class="landing-hero__container--footer">
+          <p class="footer-information">
+            Tunaiku adalah produk dari Bank Amar yang terdaftar dan diawasi oleh
+            OJK sejak 2014
+          </p>
+          <img src="assets/images/svg/Amar-Bank.svg" alt="" />
+          <img src="assets/images/svg/OJK.svg" alt="" />
+        </div>
+      </div>
+      <div class="Grid Grid-sm-6 Grid-md-2">
+        <img
+          src="assets/images/png/homepage-woman.png"
+          alt="landing-woman"
+          class="landing-hero__landing-woman"
+        />
+      </div>
+      <div class="Grid Grid-sm-6 Grid-md-5 loan-slider">
+        <form [formGroup]="loanForm">
+          <div class="Card Card--elevated landing-hero__card--container">
+            <div class="row">
+              <h3></h3>
+            </div>
+            <div class="Card-body">
+              <div class="landing-hero__card--row">
+                <span class="landing-hero__card--title">Jumlah Pinjaman</span>
+                <span class="landing-hero__card--subtitle"
+                  >{{ loanForm.value.amount }} Juta</span
+                >
+              </div>
+              <div class="landing-hero__card--row">
+                <mat-slider
+                  min="2"
+                  max="20"
+                  step="1"
+                  value="2"
+                  class="landing-hero__card-slider"
+                  formControlName="amount"
+                ></mat-slider>
+              </div>
+              <div class="landing-hero__card--row landing-hero__card--info">
+                <p>2 Juta</p>
+                <p>20 Juta</p>
+              </div>
+              <div class="landing-hero__card--row">
+                <span class="landing-hero__card--title">Lama Pinjaman</span>
+                <span class="landing-hero__card--subtitle"
+                  >{{ loanDuration }} Bulan</span
+                >
+              </div>
+              <div class="landing-hero__card--row">
+                <mat-slider
+                  min="6"
+                  max="20"
+                  step="1"
+                  value="9"
+                  class="landing-hero__card-slider"
+                  (input)="onDurationChange($event)"
+                ></mat-slider>
+              </div>
+              <div class="landing-hero__card--row landing-hero__card--info">
+                <p>6 Bulan</p>
+                <p>20 Bulan</p>
+              </div>
+              <hr class="divider" />
+              <div class="landing-hero__card--footer-content">
+                <span class="landing-hero__card--footer-title"
+                  >Cicilan per Bulan</span
+                >
+                <p class="landing-hero__card--footer-subtitle">
+                  *sudah termasuk bunga dan biaya admin
+                </p>
+                <span class="landing-hero__card--footer-total">{{
+                  total | currency: "Rp":"symbol":"3.0"
+                }}</span>
+              </div>
+            </div>
+
+            <div class="Card-footer">
+              <a
+                routerLink="/loan/confirm-service-area"
+                class="Button Button--primary Button--fullWidth"
+              >
+                Ajukan Pinjaman
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="statistic__container">
+    <img src="" alt="" />
+  </div>
+</main>

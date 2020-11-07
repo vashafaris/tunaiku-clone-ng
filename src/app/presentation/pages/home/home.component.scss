@@ -1,0 +1,115 @@
+.home__container {
+  position: relative;
+  margin-top: 70px;
+  background-color: #fff;
+}
+
+.landing-hero__container {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding: 5% 5%;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.landing-hero__container--body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing-hero__container--title {
+  font-size: 48px;
+  margin-bottom: 36px;
+}
+
+.landing-hero__container--subtitle {
+  font-size: 20px;
+  max-width: 475px;
+}
+
+.landing-hero__landing-woman {
+  margin-left: -180px;
+  opacity: 0.5;
+  transform: scaleX(-1);
+}
+
+.loan-slider {
+  min-width: 280px;
+  max-width: 380px;
+}
+
+.landing-hero__card--container {
+  padding: 30px 24px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.landing-hero__card--row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.landing-hero__container--footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  border-radius: 8px;
+  margin-top: 270px;
+}
+
+.footer-information {
+  font-size: 12px;
+}
+
+.landing-hero__container--info {
+  max-width: none;
+}
+
+.landing-hero__card--title {
+  font-weight: bold;
+}
+
+.landing-hero__card--subtitle {
+  font-weight: bold;
+  color: #08a800;
+  font-size: 20px;
+}
+
+.landing-hero__card--info {
+  color: #6d7278;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.landing-hero__card-slider {
+  width: 100%;
+}
+
+.landing-hero__card--footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-hero__card--footer-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.landing-hero__card--footer-subtitle {
+  color: #6d7278;
+}
+
+.landing-hero__card--footer-total {
+  margin-top: 20px;
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+  color: #08a800;
+}
+
+.divider {
+  margin: 20px 0;
+}
