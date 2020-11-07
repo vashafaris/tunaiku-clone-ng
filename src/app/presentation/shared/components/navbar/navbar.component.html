@@ -1,22 +1,38 @@
-<header class="Header navbar--fixed">
-  <div class="navbar__container">
+<header class="Header">
+  <nav class="navbar">
     <div class="navbar__block--left">
       <a href="#"
-        ><img src="assets/images/svg/tunaiku-logo-color.svg" alt="Tunaiku"
+        ><img
+          src="assets/images/svg/tunaiku-logo-color.svg"
+          alt="Tunaiku"
+          class="navbar__logo"
       /></a>
     </div>
     <div class="navbar__block--center">
-      <a href="">Tunaiku Invest</a>
-      <a href="">Produk</a>
-      <a href="">Tentang Kami</a>
-      <a href="">Rilis Media</a>
-      <a href="">Pusat Bantuan</a>
-      <a href="">Saran</a>
+      <ul style="display: flex">
+        <li>
+          <a href="#"><span class="navbar__chip">BARU</span>Tunaiku Invest</a>
+        </li>
+        <li><a href="#">Produk</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Rilis Media</a></li>
+        <li><a href="#">Pusat Bantuan</a></li>
+        <li>
+          <a href="#"
+            ><span
+              ><img
+                src="assets/images/svg/icon-comment.svg"
+                alt=""
+                class="navbar__saran-img" /></span
+            >Saran</a
+          >
+        </li>
+      </ul>
     </div>
     <div class="navbar__block--right">
       <button class="Button Button--primary Button--outlined navbar__button">
         Masuk Akun
       </button>
     </div>
-  </div>
+  </nav>
 </header>
