@@ -7,6 +7,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
+  selectedTab = 'create-account';
+
   accountForm = new FormGroup({
     name: new FormControl(''),
     nik: new FormControl(''),
@@ -14,7 +16,15 @@ export class CreateAccountComponent implements OnInit {
     source: new FormControl(''),
   });
 
+  signInForm = new FormGroup({
+    phone: new FormControl(''),
+  });
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  tabHandler(tab: string) {
+    this.selectedTab = tab;
+  }
 }

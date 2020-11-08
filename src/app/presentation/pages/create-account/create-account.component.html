@@ -1,43 +1,58 @@
 <app-m-site-wrapper>
-  <div class="container">
-    <div class="card-pinjaman">
-      <div class="row--space-between">
-        <div>
-          <p>Total Pinjaman</p>
-          <strong>Rp 2 Juta</strong>
-        </div>
-      </div>
-      <div class="row--space-between">
-        <div>
-          <p>Cicilan per Bulan</p>
-          <strong>Rp 482.985</strong>
-        </div>
-        <div>
-          <p>Lama cicilan</p>
-          <strong>6 Bulan</strong>
-        </div>
+  <div class="card-pinjaman">
+    <div class="row--space-between">
+      <div>
+        <p class="card-pinjaman__text">Total Pinjaman</p>
+        <strong>Rp 2 Juta</strong>
       </div>
     </div>
-    <div class="tab-bar__container">
-      <div class="tab-bar__button tab-bar__button--active">
-        <span class="tab-bar__button-text">Buat Akun</span>
+    <div class="row--space-between">
+      <div>
+        <p class="card-pinjaman__text">Cicilan per Bulan</p>
+        <strong>Rp 482.985</strong>
       </div>
-      <div class="tab-bar__button">
-        <span class="tab-bar__button-text">Masuk Akun</span>
+      <div class="card-pinjaman--flex-end">
+        <p class="card-pinjaman__text">Lama cicilan</p>
+        <strong>6 Bulan</strong>
       </div>
     </div>
-    <!-- <div class="form__container">
-      <form [formGroup]="profileForm">
-        <label for="name" class="form-label"> Nama sesuai KTP* </label>
-        <input type="text" [formControl]="name" id="name" class="form-input" />
-        <label class="form-label"> Nomor KTP (NIK)* </label>
-        <input type="text" [formControl]="nik" id="nik" class="form-input" />
-        <label class="form-label" class="form-label"> Nomor Handphone* </label>
-        <input type="text" [formControl]="phone" class="form-input" />
-        <label class="form-label">
-          Dari mana Anda mengetahui Tunaiku?*
-          <input type="text" [formControl]="source" class="form-input" />
-        </label>
+  </div>
+  <div class="tab-bar">
+    <div
+      class="tab-bar__button"
+      [ngClass]="{
+        'tab-bar__button--active': selectedTab === 'create-account'
+      }"
+      (click)="tabHandler('create-account')"
+    >
+      <span class="tab-bar__button-text">Buat Akun</span>
+    </div>
+    <div
+      class="tab-bar__button"
+      [ngClass]="{
+        'tab-bar__button--active': selectedTab === 'sign-in'
+      }"
+      (click)="tabHandler('sign-in')"
+    >
+      <span class="tab-bar__button-text">Masuk Akun</span>
+    </div>
+  </div>
+  <div class="form">
+    <div *ngIf="selectedTab === 'create-account'; else signIn">
+      <form [formGroup]="accountForm">
+        <label for="name" class="form__label"> Nama sesuai KTP* </label>
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          class="form__input"
+        />
+        <label class="form__label"> Nomor KTP (NIK)* </label>
+        <input type="text" formControlName="nik" id="nik" class="form__input" />
+        <label class="form__label" class="form__label">Nomor Handphone* </label>
+        <input type="text" formControlName="phone" class="form__input" />
+        <label class="form__label"> Dari mana Anda mengetahui Tunaiku?* </label>
+        <input type="text" formControlName="source" class="form__input" />
         <a
           routerLink="/loan/create-account"
           class="Button Button--primary Button--fullWidth"
@@ -45,6 +60,29 @@
           Buat Akun!
         </a>
       </form>
-    </div> -->
+    </div>
+    <ng-template #signIn>
+      <div class="sign-in">
+        <p class="sign-in__title">Masuk ke Akun Anda</p>
+        <p class="sign-in__subtitle">Nomor Handphone</p>
+        <form [formGroup]="signInForm">
+          <input type="text" formControlName="phone" class="form__input" />
+        </form>
+        <button
+          class="Button Button--primary Button--rounded Button--fullWidth"
+        >
+          MASUK
+        </button>
+        <div class="sign-in--center">
+          <a class="sign-in__forget">Lupa atau ubah nomor handphone?</a>
+          <div class="sign-in__information">
+            <p>
+              Untuk keamanan data Anda, pastikan ikon tampil di halaman URL
+              Tunaiku
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </app-m-site-wrapper>
