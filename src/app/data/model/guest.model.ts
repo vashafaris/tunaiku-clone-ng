@@ -4,7 +4,7 @@ export class Guest {
   debt: number;
   location: string;
   name: string;
-  ktp: string;
+  nik: string;
   phone: string;
   source: string;
 
@@ -14,7 +14,7 @@ export class Guest {
     debt: number,
     location: string,
     name: string,
-    ktp: string,
+    nik: string,
     phone: string,
     source: string
   ) {
@@ -23,7 +23,7 @@ export class Guest {
     this.debt = debt;
     this.location = location;
     this.name = name;
-    this.ktp = ktp;
+    this.nik = nik;
     this.phone = phone;
     this.source = source;
   }

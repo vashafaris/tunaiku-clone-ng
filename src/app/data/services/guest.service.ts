@@ -10,4 +10,11 @@ export class GuestService {
   constructor() {
     this.guest = new Guest(2, 6, 340000, '', '', '', '', '');
   }
+
+  setGuest(name: string, nik: string, phone: string, source: string): void {
+    this.guest.name = name;
+    this.guest.nik = nik;
+    this.guest.phone = phone;
+    this.guest.source = source;
+  }
 }

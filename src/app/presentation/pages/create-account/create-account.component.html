@@ -9,7 +9,7 @@
     <div class="row--space-between">
       <div>
         <p class="card-pinjaman__text">Cicilan per Bulan</p>
-        <strong>Rp 482.985</strong>
+        <strong>{{ guest.debt | currency: "Rp ":"symbol":"3.0" }}</strong>
       </div>
       <div class="card-pinjaman--flex-end">
         <p class="card-pinjaman__text">Lama cicilan</p>
@@ -101,12 +101,6 @@
         <button class="Button Button--primary Button--fullWidth" type="submit">
           Buat Akun!
         </button>
-        <!-- <a
-          (click)="updateName()"
-          class="Button Button--primary Button--fullWidth"
-        >
-          Buat Akun!
-        </a> -->
       </form>
     </div>
     <ng-template #signIn>
@@ -114,7 +108,9 @@
         <p class="sign-in__title">Masuk ke Akun Anda</p>
         <p class="sign-in__subtitle">Nomor Handphone</p>
         <form [formGroup]="signInForm">
-          <input type="text" formControlName="phone" class="form__input" />
+          <div class="form-group">
+            <input type="text" formControlName="phone" class="form__input" />
+          </div>
         </form>
         <button
           class="Button Button--primary Button--rounded Button--fullWidth"
