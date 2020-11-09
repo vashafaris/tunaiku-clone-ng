@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Guest } from 'src/app/data/model/guest.model';
+import { GuestService } from 'src/app/data/services/guest.service';
 
 @Component({
   selector: 'app-create-account',
@@ -8,6 +10,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateAccountComponent implements OnInit {
   selectedTab = 'create-account';
+
+  guest: Guest;
 
   accountForm = new FormGroup({
     name: new FormControl(''),
@@ -20,9 +24,11 @@ export class CreateAccountComponent implements OnInit {
     phone: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private guestService: GuestService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.guest = this.guestService.guest;
+  }
 
   tabHandler(tab: string) {
     this.selectedTab = tab;

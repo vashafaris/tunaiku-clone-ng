@@ -7,6 +7,7 @@ import {
   MatRadioModule,
   MAT_RADIO_DEFAULT_OPTIONS,
 } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 import { routes } from './router';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +19,6 @@ import { ConfirmServiceAreaComponent } from './presentation/pages/confirm-servic
 import { MNavbarComponent } from './presentation/shared/components/m-navbar/m-navbar.component';
 import { MSiteWrapperComponent } from './presentation/shared/components/m-site-wrapper/m-site-wrapper.component';
 import { CreateAccountComponent } from './presentation/pages/create-account/create-account.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,12 +38,7 @@ import { CreateAccountComponent } from './presentation/pages/create-account/crea
     MatSliderModule,
     MatRadioModule,
   ],
-  providers: [
-    {
-      provide: MAT_RADIO_DEFAULT_OPTIONS,
-      useValue: { color: 'accent' },
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
