@@ -16,7 +16,7 @@
     padding: 15px 5%;
   }
 
-  a {
+  &__item {
     margin: 0 15px;
     font-size: 15px;
     font-weight: 400;
@@ -61,7 +61,6 @@
 
   &__saran-img {
     margin-right: 12px;
-    transform: translateY(5px);
   }
 
   &__button {
@@ -69,4 +68,29 @@
     font-weight: 800;
     padding: 12px;
   }
+}
+
+.dropdown:hover {
+  .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+
+    * {
+      margin: 4px 8px;
+    }
+
+    a {
+      &:hover {
+        color: #48a800;
+      }
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+.open > .dropdown-menu {
+  display: none;
 }

@@ -19,6 +19,7 @@ import { ConfirmServiceAreaComponent } from './presentation/pages/confirm-servic
 import { MNavbarComponent } from './presentation/shared/components/m-navbar/m-navbar.component';
 import { MSiteWrapperComponent } from './presentation/shared/components/m-site-wrapper/m-site-wrapper.component';
 import { CreateAccountComponent } from './presentation/pages/create-account/create-account.component';
+import { AccountCreatedComponent } from './presentation/pages/account-created/account-created.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { CreateAccountComponent } from './presentation/pages/create-account/crea
     MNavbarComponent,
     MSiteWrapperComponent,
     CreateAccountComponent,
+    AccountCreatedComponent,
   ],
   imports: [
     BrowserModule,

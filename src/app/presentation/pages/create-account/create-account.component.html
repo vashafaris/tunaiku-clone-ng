@@ -39,35 +39,74 @@
   </div>
   <div class="form">
     <div *ngIf="selectedTab === 'create-account'; else signIn">
-      <form [formGroup]="accountForm">
-        <label for="name" class="form__label"> Nama sesuai KTP* </label>
-        <input
-          type="text"
-          formControlName="name"
-          id="name"
-          class="form__input"
-        />
-        <label class="form__label"> Nomor KTP (NIK)* </label>
-        <input type="text" formControlName="nik" id="nik" class="form__input" />
-        <label class="form__label" class="form__label">Nomor Handphone* </label>
-        <input type="text" formControlName="phone" class="form__input" />
-        <label class="form__label"> Dari mana Anda mengetahui Tunaiku?* </label>
-        <!-- <input type="text" formControlName="source" class="form__input" /> -->
-        <select class="form__select">
-          <option>Pilih salah satu</option>
-          <option>Internet</option>
-          <option>Teman</option>
-          <option>Radio</option>
-          <option>Selebaran/Brosur</option>
-          <option>Televisi</option>
-          <option>Lainnya</option>
-        </select>
-        <a
-          routerLink="/loan/create-account"
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name" class="form__label"> Nama sesuai KTP* </label>
+          <input
+            type="text"
+            formControlName="name"
+            id="name"
+            class="form__input"
+          />
+          <span
+            class="form__validation"
+            *ngIf="!form.get('name').valid && form.get('name').touched"
+            >Nama lengkap wajib diisi</span
+          >
+          <span
+            class="form__validation"
+            *ngIf="!form.get('name').valid && form.get('name').touched"
+            >Nama lengkap hanya menggunakan alphabet</span
+          >
+        </div>
+        <div class="form-group">
+          <label class="form__label"> Nomor KTP (NIK)* </label>
+          <input
+            type="text"
+            formControlName="nik"
+            id="nik"
+            class="form__input"
+          />
+          <span
+            class="form__validation"
+            *ngIf="!form.get('nik').valid && form.get('nik').touched"
+            >Nomor KTP wajib diisi</span
+          >
+        </div>
+        <div class="form-group">
+          <label class="form__label" class="form__label"
+            >Nomor Handphone*
+          </label>
+          <input type="text" formControlName="phone" class="form__input" />
+          <span
+            class="form__validation"
+            *ngIf="!form.get('phone').valid && form.get('phone').touched"
+            >Nomor handphone wajib diisi</span
+          >
+        </div>
+        <div class="form-group">
+          <label class="form__label">
+            Dari mana Anda mengetahui Tunaiku?*
+          </label>
+          <select class="form__select">
+            <option>Pilih salah satu</option>
+            <option>Internet</option>
+            <option>Teman</option>
+            <option>Radio</option>
+            <option>Selebaran/Brosur</option>
+            <option>Televisi</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <button class="Button Button--primary Button--fullWidth" type="submit">
+          Buat Akun!
+        </button>
+        <!-- <a
+          (click)="updateName()"
           class="Button Button--primary Button--fullWidth"
         >
           Buat Akun!
-        </a>
+        </a> -->
       </form>
     </div>
     <ng-template #signIn>
