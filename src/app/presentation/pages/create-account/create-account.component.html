@@ -51,14 +51,29 @@
           <span
             class="form__validation"
             *ngIf="
-              form.get('name').hasError('required') && form.get('name').touched
+              form.get('name').hasError('required') &&
+              form.get('name').touched &&
+              form.get('name').dirty
             "
             >Nama lengkap wajib diisi <br
           /></span>
           <span
             class="form__validation"
-            *ngIf="!form.get('name').valid && form.get('name').touched"
-            >Nama lengkap hanya menggunakan alphabet</span
+            *ngIf="
+              form.get('name').hasError('pattern') &&
+              form.get('name').touched &&
+              form.get('name').dirty
+            "
+            >Nama lengkap hanya menggunakan alphabet<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('name').hasError('maxlength') &&
+              form.get('name').touched &&
+              form.get('name').dirty
+            "
+            >Nama lengkap maksimal 50 karakter</span
           >
         </div>
         <div class="form-group">
@@ -72,17 +87,28 @@
           <span
             class="form__validation"
             *ngIf="
-              form.get('nik').hasError('required') && form.get('nik').touched
+              form.get('nik').hasError('required') &&
+              form.get('nik').touched &&
+              form.get('nik').dirty
             "
             >Nomor KTP wajib diisi<br
           /></span>
           <span
             class="form__validation"
             *ngIf="
-              form.get('nik').hasError('minLength') && form.get('nik').touched
+              (form.get('nik').hasError('minlength') ||
+                form.get('nik').hasError('maxlength')) &&
+              form.get('nik').touched
             "
-            >Nomor KTP minimal 16 digit</span
-          >
+            >Nomor KTP harus 16 digit<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('nik').hasError('pattern') && form.get('nik').touched
+            "
+            >Nomor KTP harus menggunakan angka<br
+          /></span>
         </div>
         <div class="form-group">
           <label class="form__label" class="form__label"
@@ -91,22 +117,53 @@
           <input type="text" formControlName="phone" class="form__input" />
           <span
             class="form__validation"
-            *ngIf="!form.get('phone').valid && form.get('phone').touched"
-            >Nomor handphone wajib diisi</span
-          >
+            *ngIf="
+              form.get('phone').hasError('required') &&
+              form.get('phone').touched &&
+              form.get('phone').dirty
+            "
+            >Nomor handphone wajib diisi<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('phone').hasError('pattern') &&
+              form.get('phone').touched &&
+              form.get('phone').dirty
+            "
+            >Nomor handphone wajib menggunakan angka<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('phone').hasError('minlength') &&
+              form.get('phone').touched &&
+              form.get('phone').dirty
+            "
+            >Nomor handphone minimal 9 karakter<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('phone').hasError('maxlength') &&
+              form.get('phone').touched &&
+              form.get('phone').dirty
+            "
+            >Nomor handphone maksimal 12 karakter<br
+          /></span>
         </div>
         <div class="form-group">
           <label class="form__label">
             Dari mana Anda mengetahui Tunaiku?*
           </label>
           <select class="form__select" formControlName="source">
-            <option>Pilih salah satu</option>
-            <option>Internet</option>
-            <option>Teman</option>
-            <option>Radio</option>
-            <option>Selebaran/Brosur</option>
-            <option>Televisi</option>
-            <option>Lainnya</option>
+            <option value="">Pilih salah satu</option>
+            <option value="internet">Internet</option>
+            <option value="teman">Teman</option>
+            <option value="radio">Radio</option>
+            <option value="selebaran-brosur">Selebaran/Brosur</option>
+            <option value="televisi">Televisi</option>
+            <option value="lainnya">Lainnya</option>
           </select>
         </div>
         <button

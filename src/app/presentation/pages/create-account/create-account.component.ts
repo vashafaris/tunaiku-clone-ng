@@ -24,14 +24,21 @@ export class CreateAccountComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(this.guest.name, [
         Validators.required,
-        Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(50),
       ]),
       nik: new FormControl(this.guest.nik, [
         Validators.required,
+        Validators.pattern('^[0-9]*$'),
         Validators.minLength(16),
+        Validators.maxLength(16),
       ]),
-      phone: new FormControl(this.guest.phone, Validators.required),
+      phone: new FormControl(this.guest.phone, [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(9),
+        Validators.maxLength(12),
+      ]),
       source: new FormControl(this.guest.source, Validators.required),
     });
 
