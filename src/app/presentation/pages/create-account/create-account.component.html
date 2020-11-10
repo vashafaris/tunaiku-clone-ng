@@ -50,9 +50,11 @@
           />
           <span
             class="form__validation"
-            *ngIf="!form.get('name').valid && form.get('name').touched"
-            >Nama lengkap wajib diisi</span
-          >
+            *ngIf="
+              form.get('name').hasError('required') && form.get('name').touched
+            "
+            >Nama lengkap wajib diisi <br
+          /></span>
           <span
             class="form__validation"
             *ngIf="!form.get('name').valid && form.get('name').touched"
@@ -69,8 +71,17 @@
           />
           <span
             class="form__validation"
-            *ngIf="!form.get('nik').valid && form.get('nik').touched"
-            >Nomor KTP wajib diisi</span
+            *ngIf="
+              form.get('nik').hasError('required') && form.get('nik').touched
+            "
+            >Nomor KTP wajib diisi<br
+          /></span>
+          <span
+            class="form__validation"
+            *ngIf="
+              form.get('nik').hasError('minLength') && form.get('nik').touched
+            "
+            >Nomor KTP minimal 16 digit</span
           >
         </div>
         <div class="form-group">

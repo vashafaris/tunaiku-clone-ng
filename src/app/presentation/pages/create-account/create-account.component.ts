@@ -14,17 +14,7 @@ export class CreateAccountComponent implements OnInit {
 
   guest: Guest;
   form: FormGroup;
-
-  accountForm = new FormGroup({
-    name: new FormControl(''),
-    nik: new FormControl(''),
-    phone: new FormControl(''),
-    source: new FormControl(''),
-  });
-
-  signInForm = new FormGroup({
-    phone: new FormControl(''),
-  });
+  signInForm: FormGroup;
 
   constructor(private guestService: GuestService, private router: Router) {}
 
@@ -37,9 +27,16 @@ export class CreateAccountComponent implements OnInit {
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
       ]),
-      nik: new FormControl(this.guest.nik, Validators.required),
+      nik: new FormControl(this.guest.nik, [
+        Validators.required,
+        Validators.minLength(16),
+      ]),
       phone: new FormControl(this.guest.phone, Validators.required),
       source: new FormControl(this.guest.source, Validators.required),
+    });
+
+    this.signInForm = new FormGroup({
+      phone: new FormControl(''),
     });
   }
 
