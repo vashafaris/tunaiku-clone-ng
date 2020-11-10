@@ -1,6 +1,6 @@
 <header class="Header m-navbar--fixed">
   <span>
-    <a routerLink="/" class="m-navbar--align-center">
+    <a (click)="backHandler()" class="m-navbar--align-center">
       <img
         src="assets/images/svg/ic-back.svg"
         alt="back-button"
@@ -8,5 +8,7 @@
       />
     </a>
   </span>
-  <span><strong class="m-navbar__title">Area Layanan</strong></span>
+  <span
+    ><strong class="m-navbar__title">{{ title }}</strong></span
+  >
 </header>

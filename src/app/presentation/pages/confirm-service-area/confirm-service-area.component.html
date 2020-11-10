@@ -1,45 +1,51 @@
-<app-m-site-wrapper>
-  <div class="container">
-    <div class="image-container">
+<app-m-site-wrapper headerTitle="Area Layanan">
+  <div class="service-area">
+    <div class="service-area__image">
       <img src="assets/images/svg/service-area.svg" alt="service-area" />
     </div>
-    <div class="content-container">
-      <p class="title">Pilih area tempat tinggal Anda di bawah ini!</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p class="service-area__title">
+        Pilih area tempat tinggal Anda di bawah ini!
+      </p>
       <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
+        formControlName="isPrimaryLocation"
       >
-        <mat-radio-button value="1"
-          ><p>
-            <span class="text-option"
+        <mat-radio-button value="primaryLocation" aria-labelledby="cities">
+          <span>
+            <span class="service-area__text-option"
               ><strong>Jawa: </strong>Jakarta, Bogor, Depok, Tangerang, Bekasi,
               Bandung, Semarang, Yogyakarta, Gresik<br
             /></span>
-            <span class="text-option"
+            <span class="service-area__text-option"
               ><strong>Sumatera: </strong>Medan, Palembang, Pekanbaru<br
             /></span>
-            <span class="text-option"
+            <span class="service-area__text-option"
               ><strong>Bali: </strong>Denpasar<br
             /></span>
-            <span class="text-option"
+            <span class="service-area__text-option"
               ><strong>Sulawesi: </strong>Makasar<br
             /></span>
-          </p>
+          </span>
         </mat-radio-button>
-        <mat-radio-button value="2"
+        <mat-radio-button value="nonPrimaryLocation"
           ><p>
-            <span class="text-option">Di kota lainnya<br /></span>
+            <span class="service-area__text-option">Di kota lainnya<br /></span>
           </p>
         </mat-radio-button>
       </mat-radio-group>
-    </div>
-    <div class="button-container">
-      <a
-        routerLink="/loan/create-account"
-        class="Button Button--primary Button--fullWidth"
-      >
-        Lanjutkan
-      </a>
-    </div>
+      <div class="service-area__button">
+        <button
+          type="submit"
+          class="Button Button--primary Button--fullWidth"
+          [ngClass]="{
+            'is-disabled': form.get('isPrimaryLocation').valid === false
+          }"
+        >
+          Lanjutkan
+        </button>
+      </div>
+    </form>
   </div>
 </app-m-site-wrapper>

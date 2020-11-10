@@ -1,0 +1,25 @@
+<app-m-site-wrapper [headerTitle]="'Berhasil Membuat Akun'">
+  <div class="success">
+    <img src="assets/images/svg/checked.svg" alt="" class="success__img" />
+    <div class="success__detail-information">
+      <strong class="success__info-title">Detail Informasi</strong>
+      <div class="success__info-container">
+        <div class="success__info-item">
+          <p>Nama calon peminjam</p>
+          <strong>{{ guest.name }}</strong>
+        </div>
+        <div class="success__info-item">
+          <p>Total Pinjaman</p>
+          <strong>{{ guest.loanValue }} Juta</strong>
+        </div>
+        <div class="success__info-item">
+          <p>Lama Cicilan</p>
+          <strong>{{ guest.loanDuration }} Bulan</strong>
+        </div>
+      </div>
+    </div>
+    <p class="success__subtitle">
+      Kami akan segera menghubungi anda, pastikan HP anda aktif.
+    </p>
+  </div>
+</app-m-site-wrapper>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Guest } from 'src/app/data/model/guest.model';
+import { GuestService } from 'src/app/data/services/guest.service';
 
 @Component({
   selector: 'app-home',
@@ -12,23 +14,25 @@ export class HomeComponent implements OnInit {
   interest: number = 1.531512000001532;
   total: number = 340000;
 
-  loanForm = new FormGroup({
-    amount: new FormControl(2),
-    duration: new FormControl(9),
-  });
-  constructor() {}
+  guest: Guest;
 
-  ngOnInit(): void {}
+  constructor(private guestService: GuestService) {}
+
+  ngOnInit(): void {
+    this.guest = this.guestService.guest;
+  }
 
   onValueChange(event: any): void {
-    this.loanValue = event.value;
-    this.total =
-      ((this.loanValue * 1000000) / this.loanDuration) * this.interest;
+    this.guest.loanValue = event.value;
+    this.guest.debt =
+      ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
+      this.interest;
   }
 
   onDurationChange(event: any): void {
-    this.loanDuration = event.value;
-    this.total =
-      ((this.loanValue * 1000000) / this.loanDuration) * this.interest;
+    this.guest.loanDuration = event.value;
+    this.guest.debt =
+      ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
+      this.interest;
   }
 }

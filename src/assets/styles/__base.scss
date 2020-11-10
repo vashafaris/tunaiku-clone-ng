@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  height: 100%;
+  color: #3d3d3d;
+  background-color: #e4e2e2;
+}
+
+a,
+a:link,
+a:hover,
+a:focus {
+  color: currentColor;
+  text-decoration: none;
+  cursor: pointer;
+}

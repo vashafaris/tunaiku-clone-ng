@@ -1,49 +1,96 @@
-.navbar--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
+.navbar {
   width: 100%;
   height: 70px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.2);
-  background: #fff;
-}
-
-.navbar__container {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 5%;
-  //   margin: 0 auto;
-}
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 15px 10%;
+  background: #fff;
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.2);
 
-.navbar__container a {
-  margin: 0 15px;
-  font-size: 15px;
-  &:hover {
-    color: #48a800;
+  @media only screen and (max-width: 1286px) {
+    padding: 15px 5%;
+  }
+
+  &__item {
+    margin: 0 15px;
+    font-size: 15px;
+    font-weight: 400;
+    &:hover {
+      color: #48a800;
+    }
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__chip {
+    background-color: #e65441;
+    font-size: 8px;
+    font-weight: 900;
+    color: #fff;
+    padding: 1px 3px;
+    border-radius: 20px;
+    margin-right: 4px;
+  }
+
+  &__block--left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__block--center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__block--right {
+    justify-content: flex-end;
+  }
+
+  &__saran-img {
+    margin-right: 12px;
+  }
+
+  &__button {
+    margin: 0 20px;
+    font-weight: 800;
+    padding: 12px;
   }
 }
 
-.navbar__block--left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.dropdown:hover {
+  .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+
+    * {
+      margin: 4px 8px;
+    }
+
+    a {
+      &:hover {
+        color: #48a800;
+      }
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
 }
 
-.navbar__block--center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar__block--right {
-  justify-content: flex-end;
-}
-
-.navbar__button {
-  margin: 0 20px;
+.open > .dropdown-menu {
+  display: none;
 }

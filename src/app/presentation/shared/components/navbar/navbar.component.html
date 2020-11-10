@@ -1,22 +1,82 @@
-<header class="Header navbar--fixed">
-  <div class="navbar__container">
+<header class="Header">
+  <nav class="navbar">
     <div class="navbar__block--left">
       <a href="#"
-        ><img src="assets/images/svg/tunaiku-logo-color.svg" alt="Tunaiku"
+        ><img
+          src="assets/images/svg/tunaiku-logo-color.svg"
+          alt="Tunaiku"
+          class="navbar__logo"
       /></a>
     </div>
     <div class="navbar__block--center">
-      <a href="">Tunaiku Invest</a>
-      <a href="">Produk</a>
-      <a href="">Tentang Kami</a>
-      <a href="">Rilis Media</a>
-      <a href="">Pusat Bantuan</a>
-      <a href="">Saran</a>
+      <ul style="display: flex">
+        <li>
+          <a href="#" class="navbar__item"
+            ><span class="navbar__chip">BARU</span>Tunaiku Invest</a
+          >
+        </li>
+        <!-- <li><a href="#">Produk</a></li> -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle navbar__item"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Produk
+            <span class="caret"></span>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <span>Nasabah</span>
+            <a class="dropdown-item" href="#">Referal</a>
+            <a class="dropdown-item" href="#">Swara</a>
+            <hr />
+            <span>Bisnis</span>
+            <a class="dropdown-item" href="#">Partner bisnis</a>
+          </div>
+        </li>
+        <li><a href="#" class="navbar__item">Tentang Kami</a></li>
+        <li><a href="#" class="navbar__item">Rilis Media</a></li>
+        <!-- <li><a href="#" class="navbar__item">Pusat Bantuan</a></li> -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle navbar__item"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Pusat Bantuan
+            <span class="caret"></span>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Tanya Jawab</a>
+            <a class="dropdown-item" href="#">Cara Pembayaran</a>
+          </div>
+        </li>
+        <li>
+          <a href="#" class="navbar__item"
+            ><span
+              ><img
+                src="assets/images/svg/icon-comment.svg"
+                alt=""
+                class="navbar__saran-img" /></span
+            >Saran</a
+          >
+        </li>
+      </ul>
     </div>
     <div class="navbar__block--right">
       <button class="Button Button--primary Button--outlined navbar__button">
         Masuk Akun
       </button>
     </div>
-  </div>
+  </nav>
 </header>

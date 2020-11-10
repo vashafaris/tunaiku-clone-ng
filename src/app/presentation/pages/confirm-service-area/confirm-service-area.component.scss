@@ -1,26 +1,37 @@
-.container {
+.service-area {
   padding: 16px;
+
+  &__image {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  &__text-option {
+    white-space: normal;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  &__button {
+    margin-top: 20px;
+  }
 }
 
-.image-container {
-  text-align: center;
-  margin-bottom: 20px;
+::ng-deep .mat-radio-container {
+  align-self: end;
 }
 
-.title {
-  font-weight: bold;
-  margin-bottom: 15px;
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #48a800;
 }
 
-.text-option {
-  white-space: normal;
-  font-size: 14px;
-}
-
-.button-container {
-  margin-top: 20px;
-}
-
-.mat-radio-label {
-  background: red;
+::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #48a800;
 }
