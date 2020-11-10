@@ -88,7 +88,7 @@
           <label class="form__label">
             Dari mana Anda mengetahui Tunaiku?*
           </label>
-          <select class="form__select">
+          <select class="form__select" formControlName="source">
             <option>Pilih salah satu</option>
             <option>Internet</option>
             <option>Teman</option>
@@ -98,7 +98,17 @@
             <option>Lainnya</option>
           </select>
         </div>
-        <button class="Button Button--primary Button--fullWidth" type="submit">
+        <button
+          class="Button Button--primary Button--fullWidth"
+          type="submit"
+          [ngClass]="{
+            'is-disabled':
+              !form.get('name').valid ||
+              !form.get('nik').valid ||
+              !form.get('phone').valid ||
+              !form.get('source').valid
+          }"
+        >
           Buat Akun!
         </button>
       </form>

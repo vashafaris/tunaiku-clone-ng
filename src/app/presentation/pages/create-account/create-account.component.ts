@@ -47,12 +47,7 @@ export class CreateAccountComponent implements OnInit {
     this.selectedTab = tab;
   }
 
-  updateName() {
-    console.log('ok');
-  }
-
   onSubmit() {
-    console.log('ok', this.form.get('name').value);
     this.guestService.setGuest(
       this.form.get('name').value,
       this.form.get('nik').value,
