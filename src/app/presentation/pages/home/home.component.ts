@@ -9,10 +9,7 @@ import { GuestService } from 'src/app/data/services/guest.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  loanValue: number = 2;
-  loanDuration: number = 9;
   interest: number = 1.531512000001532;
-  total: number = 340000;
 
   guest: Guest;
 
