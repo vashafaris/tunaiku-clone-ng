@@ -24,15 +24,17 @@ export class HomeComponent implements OnInit {
 
   onValueChange(event: any): void {
     this.guest.loanValue = event.value;
-    this.guest.debt =
+    this.guest.debt = Math.ceil(
       ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
-      this.interest;
+        this.interest
+    );
   }
 
   onDurationChange(event: any): void {
     this.guest.loanDuration = event.value;
-    this.guest.debt =
+    this.guest.debt = Math.ceil(
       ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
-      this.interest;
+        this.interest
+    );
   }
 }
