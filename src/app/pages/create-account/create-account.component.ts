@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Guest } from 'src/app/data/model/guest.model';
-import { GuestService } from 'src/app/data/services/guest.service';
+import { Guest } from 'src/app/shared/model/guest.model';
+import { GuestService } from 'src/app/shared/services/guest.service';
 
 @Component({
   selector: 'app-create-account',
@@ -45,6 +45,8 @@ export class CreateAccountComponent implements OnInit {
     this.signInForm = new FormGroup({
       phone: new FormControl(''),
     });
+
+    console.log(this.form);
   }
 
   tabHandler(tab: string) {
@@ -52,6 +54,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('fomrgroup', this.form);
     this.guestService.setGuest(
       this.form.get('name').value,
       this.form.get('nik').value,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Guest } from 'src/app/data/model/guest.model';
-import { GuestService } from 'src/app/data/services/guest.service';
+import { Guest } from 'src/app/shared/model/guest.model';
+import { GuestService } from 'src/app/shared/services/guest.service';
 
 @Component({
   selector: 'app-account-created',

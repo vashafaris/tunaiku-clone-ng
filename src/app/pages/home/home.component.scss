@@ -372,7 +372,7 @@
       &::before {
         content: "";
         display: inline-block;
-        background-image: url("../../../../assets/images/svg/verified.svg");
+        background-image: url("/assets/images/svg/verified.svg");
         background-size: contain;
         background-repeat: no-repeat;
         height: 30px;
@@ -420,7 +420,7 @@
       &::before {
         content: "";
         display: inline-block;
-        background-image: url("../../../../assets/images/svg/verified-blue.svg");
+        background-image: url("/assets/images/svg/verified-blue.svg");
         background-size: contain;
         background-repeat: no-repeat;
         height: 20px;
@@ -456,7 +456,7 @@
     &::before {
       content: "";
       display: inline-block;
-      background-image: url("../../../../assets/images/svg/location.svg");
+      background-image: url("/assets/images/svg/location.svg");
       background-size: contain;
       background-repeat: no-repeat;
       height: 20px;
