@@ -19,8 +19,20 @@
           </p>
         </div>
         <div class="landing-hero__content-footer-logos">
-          <a href=""><img src="assets/images/svg/Amar-Bank.svg" alt="" /></a>
-          <a href=""> <img src="assets/images/svg/OJK.svg" alt="" /></a>
+          <a href="">
+            <img
+              src="assets/images/svg/Amar-Bank.svg"
+              alt=""
+              class="landing-hero__content-footer-image"
+            />
+          </a>
+          <a href="">
+            <img
+              src="assets/images/svg/OJK.svg"
+              alt=""
+              class="landing-hero__content-footer-image"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -36,9 +48,9 @@
         <div class="Card-body">
           <div class="landing-hero__card--row">
             <span class="landing-hero__card-title">Jumlah Pinjaman</span>
-            <span class="landing-hero__card-subtitle"
-              >{{ guest.loanValue }} Juta</span
-            >
+            <span class="landing-hero__card-subtitle">
+              {{ loan.loanValue }} Juta
+            </span>
           </div>
           <div class="landing-hero__card--row">
             <mat-slider
@@ -47,7 +59,7 @@
               step="1"
               value="2"
               class="landing-hero__card-slider"
-              (input)="onValueChange($event)"
+              (input)="onLoanValueChange($event)"
             ></mat-slider>
           </div>
           <div class="landing-hero__card--row landing-hero__card-info">
@@ -56,9 +68,9 @@
           </div>
           <div class="landing-hero__card--row">
             <span class="landing-hero__card-title">Lama Pinjaman</span>
-            <span class="landing-hero__card-subtitle"
-              >{{ guest.loanDuration }} Bulan</span
-            >
+            <span class="landing-hero__card-subtitle">
+              {{ loan.loanDuration }} Bulan
+            </span>
           </div>
           <div class="landing-hero__card--row">
             <mat-slider
@@ -67,7 +79,7 @@
               step="1"
               value="9"
               class="landing-hero__card-slider"
-              (input)="onDurationChange($event)"
+              (input)="onLoanDurationChange($event)"
             ></mat-slider>
           </div>
           <div class="landing-hero__card--row landing-hero__card-info">
@@ -75,15 +87,15 @@
             <p>20 Bulan</p>
           </div>
           <div class="landing-hero__card-footer-content">
-            <span class="landing-hero__card-footer-title"
-              >Cicilan per Bulan</span
-            >
+            <span class="landing-hero__card-footer-title">
+              Cicilan per Bulan
+            </span>
             <p class="landing-hero__card-footer-subtitle">
               *sudah termasuk bunga dan biaya admin
             </p>
-            <span class="landing-hero__card-footer-total">{{
-              guest.debt | currency: "Rp":"symbol":"3.0"
-            }}</span>
+            <span class="landing-hero__card-footer-total">
+              {{ loan.debt | currency: 'Rp':'symbol':'3.0' }}
+            </span>
           </div>
         </div>
 
@@ -102,17 +114,25 @@
   <div class="statistic">
     <div class="statistic__container">
       <div class="statistic__item">
-        <img src="assets/images/svg/icon_income.svg" alt="" />
+        <img
+          src="assets/images/svg/icon_income.svg"
+          alt=""
+          class="statistic__image"
+        />
         <div class="statistic__info">
-          <strong>> Rp 4 Triliun</strong>
-          <p>Pembiayaan yang telah disalurkan</p>
+          <strong class="statistic__title">Rp 4 Triliun</strong>
+          <p class="statistic__description">Pembiayaan yang telah disalurkan</p>
         </div>
       </div>
       <div class="statistic__item">
-        <img src="assets/images/svg/icon_smartphone.svg" alt="" />
+        <img
+          src="assets/images/svg/icon_smartphone.svg"
+          alt=""
+          class="statistic__image"
+        />
         <div class="statistic__info">
-          <strong>> 4.6 juta Pengguna</strong>
-          <p>Mengunduh aplikasi Tunaiku</p>
+          <strong class="statistic__title">4.6 juta Pengguna</strong>
+          <p class="statistic__description">Mengunduh aplikasi Tunaiku</p>
         </div>
       </div>
     </div>

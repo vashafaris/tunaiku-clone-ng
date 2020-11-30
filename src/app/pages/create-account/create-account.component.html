@@ -3,17 +3,17 @@
     <div class="row--space-between">
       <div>
         <p class="card-pinjaman__text">Total Pinjaman</p>
-        <strong>Rp {{ guest.loanValue }} Juta</strong>
+        <strong>Rp {{ loan.loanValue }} Juta</strong>
       </div>
     </div>
     <div class="row--space-between">
       <div>
         <p class="card-pinjaman__text">Cicilan per Bulan</p>
-        <strong>{{ guest.debt | currency: "Rp ":"symbol":"3.0" }}</strong>
+        <strong>{{ loan.debt | currency: 'Rp ':'symbol':'3.0' }}</strong>
       </div>
       <div class="card-pinjaman--flex-end">
         <p class="card-pinjaman__text">Lama cicilan</p>
-        <strong>{{ guest.loanDuration }} Bulan</strong>
+        <strong>{{ loan.loanDuration }} Bulan</strong>
       </div>
     </div>
   </div>
@@ -21,27 +21,27 @@
     <div
       class="tab-bar__button"
       [ngClass]="{
-        'tab-bar__button--active': selectedTab === 'create-account'
+        'tab-bar__button--active': selectedTab === tabType.CreateAccount
       }"
-      (click)="tabHandler('create-account')"
+      (click)="tabHandler(tabType.CreateAccount)"
     >
       <span class="tab-bar__button-text">Buat Akun</span>
     </div>
     <div
       class="tab-bar__button"
       [ngClass]="{
-        'tab-bar__button--active': selectedTab === 'sign-in'
+        'tab-bar__button--active': selectedTab === tabType.SignIn
       }"
-      (click)="tabHandler('sign-in')"
+      (click)="tabHandler(tabType.SignIn)"
     >
       <span class="tab-bar__button-text">Masuk Akun</span>
     </div>
   </div>
   <div class="form">
-    <div *ngIf="selectedTab === 'create-account'; else signIn">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngIf="selectedTab === tabType.CreateAccount; else signIn">
+      <form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="name" class="form__label"> Nama sesuai KTP* </label>
+          <label for="name" class="form__label">Nama sesuai KTP*</label>
           <input
             type="text"
             formControlName="name"
@@ -51,35 +51,40 @@
           <span
             class="form__validation"
             *ngIf="
-              form.get('name').hasError('required') &&
-              form.get('name').touched &&
-              form.get('name').dirty
+              createAccountForm.get('name').hasError('required') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
             "
-            >Nama lengkap wajib diisi <br
-          /></span>
-          <span
-            class="form__validation"
-            *ngIf="
-              form.get('name').hasError('pattern') &&
-              form.get('name').touched &&
-              form.get('name').dirty
-            "
-            >Nama lengkap hanya menggunakan alphabet<br
-          /></span>
-          <span
-            class="form__validation"
-            *ngIf="
-              form.get('name').hasError('maxlength') &&
-              form.get('name').touched &&
-              form.get('name').dirty
-            "
-            >Nama lengkap maksimal 50 karakter</span
           >
+            Nama lengkap wajib diisi
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('name').hasError('pattern') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
+            "
+          >
+            Nama lengkap hanya menggunakan alphabet
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('name').hasError('maxlength') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
+            "
+          >
+            Nama lengkap maksimal 50 karakter
+          </span>
         </div>
         <div class="form-group">
-          <label class="form__label"> Nomor KTP (NIK)* </label>
+          <label class="form__label">Nomor KTP (NIK)*</label>
           <input
-            type="text"
+            type="tel"
             formControlName="nik"
             id="nik"
             class="form__input"
@@ -87,76 +92,89 @@
           <span
             class="form__validation"
             *ngIf="
-              form.get('nik').hasError('required') &&
-              form.get('nik').touched &&
-              form.get('nik').dirty
+              createAccountForm.get('nik').hasError('required') &&
+              createAccountForm.get('nik').touched &&
+              createAccountForm.get('nik').dirty
             "
-            >Nomor KTP wajib diisi<br
-          /></span>
+          >
+            Nomor KTP wajib diisi
+            <br />
+          </span>
           <span
             class="form__validation"
             *ngIf="
-              (form.get('nik').hasError('minlength') ||
-                form.get('nik').hasError('maxlength')) &&
-              form.get('nik').touched
+              (createAccountForm.get('nik').hasError('minlength') ||
+                createAccountForm.get('nik').hasError('maxlength')) &&
+              createAccountForm.get('nik').touched
             "
-            >Nomor KTP harus 16 digit<br
-          /></span>
+          >
+            Nomor KTP harus 16 digit
+            <br />
+          </span>
           <span
             class="form__validation"
             *ngIf="
-              form.get('nik').hasError('pattern') && form.get('nik').touched
+              createAccountForm.get('nik').hasError('pattern') &&
+              createAccountForm.get('nik').touched
             "
-            >Nomor KTP harus menggunakan angka<br
-          /></span>
+          >
+            Nomor KTP harus menggunakan angka
+            <br />
+          </span>
         </div>
         <div class="form-group">
-          <label class="form__label" class="form__label"
-            >Nomor Handphone*
+          <label class="form__label" class="form__label">
+            Nomor Handphone*
           </label>
-          <input type="text" formControlName="phone" class="form__input" />
+          <input type="tel" formControlName="phone" class="form__input" />
           <span
             class="form__validation"
             *ngIf="
-              form.get('phone').hasError('required') &&
-              form.get('phone').touched &&
-              form.get('phone').dirty
+              createAccountForm.get('phone').hasError('required') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
             "
-            >Nomor handphone wajib diisi<br
-          /></span>
+          >
+            Nomor handphone wajib diisi
+            <br />
+          </span>
           <span
             class="form__validation"
             *ngIf="
-              form.get('phone').hasError('pattern') &&
-              form.get('phone').touched &&
-              form.get('phone').dirty
+              createAccountForm.get('phone').hasError('pattern') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
             "
-            >Nomor handphone wajib menggunakan angka<br
-          /></span>
+          >
+            Nomor handphone wajib menggunakan angka
+            <br />
+          </span>
           <span
             class="form__validation"
             *ngIf="
-              form.get('phone').hasError('minlength') &&
-              form.get('phone').touched &&
-              form.get('phone').dirty
+              createAccountForm.get('phone').hasError('minlength') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
             "
-            >Nomor handphone minimal 9 karakter<br
-          /></span>
+          >
+            Nomor handphone minimal 9 karakter
+            <br />
+          </span>
           <span
             class="form__validation"
             *ngIf="
-              form.get('phone').hasError('maxlength') &&
-              form.get('phone').touched &&
-              form.get('phone').dirty
+              createAccountForm.get('phone').hasError('maxlength') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
             "
-            >Nomor handphone maksimal 12 karakter<br
-          /></span>
+          >
+            Nomor handphone maksimal 12 karakter
+            <br />
+          </span>
         </div>
         <div class="form-group">
-          <label class="form__label">
-            Dari mana Anda mengetahui Tunaiku?*
-          </label>
-          <select class="form__select" formControlName="source">
+          <label class="form__label">Dari mana Anda mengetahui Tunaiku?*</label>
+          <select class="form__select" formControlName="discover">
             <option value="">Pilih salah satu</option>
             <option value="internet">Internet</option>
             <option value="teman">Teman</option>
@@ -169,13 +187,7 @@
         <button
           class="Button Button--primary Button--fullWidth"
           type="submit"
-          [ngClass]="{
-            'is-disabled':
-              !form.get('name').valid ||
-              !form.get('nik').valid ||
-              !form.get('phone').valid ||
-              !form.get('source').valid
-          }"
+          [ngClass]="{ 'is-disabled': !createAccountForm.valid }"
         >
           Buat Akun!
         </button>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Guest } from 'src/app/shared/model/guest.model';
-import { GuestService } from 'src/app/shared/services/guest.service';
+import { MatSliderChange } from '@angular/material/slider';
+
+import { Loan } from 'src/app/shared/model/loan.model';
+import { LoanService } from 'src/app/shared/services/loan.store';
 
 @Component({
   selector: 'app-home',
@@ -8,29 +10,23 @@ import { GuestService } from 'src/app/shared/services/guest.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  interest: number = 1.531512000001532;
+  loan: Loan;
 
-  guest: Guest;
-
-  constructor(private guestService: GuestService) {}
+  constructor(private loanService: LoanService) {}
 
   ngOnInit(): void {
-    this.guest = this.guestService.guest;
+    this.loanService.data.subscribe(loan => {
+      this.loan = loan;
+    });
   }
 
-  onValueChange(event: any): void {
-    this.guest.loanValue = event.value;
-    this.guest.debt = Math.ceil(
-      ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
-        this.interest
-    );
+  onLoanValueChange(event: MatSliderChange): void {
+    this.loanService.setLoanValue(event.value);
+    this.loanService.calculateDebt();
   }
 
-  onDurationChange(event: any): void {
-    this.guest.loanDuration = event.value;
-    this.guest.debt = Math.ceil(
-      ((this.guest.loanValue * 1000000) / this.guest.loanDuration) *
-        this.interest
-    );
+  onLoanDurationChange(event: MatSliderChange): void {
+    this.loanService.setLoanDuration(event.value);
+    this.loanService.calculateDebt();
   }
 }

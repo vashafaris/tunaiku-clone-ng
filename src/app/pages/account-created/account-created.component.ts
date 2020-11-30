@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Guest } from 'src/app/shared/model/guest.model';
-import { GuestService } from 'src/app/shared/services/guest.service';
+
+import { Loan } from 'src/app/shared/model/loan.model';
+import { LoanService } from 'src/app/shared/services/loan.store';
 
 @Component({
   selector: 'app-account-created',
@@ -8,11 +9,13 @@ import { GuestService } from 'src/app/shared/services/guest.service';
   styleUrls: ['./account-created.component.scss'],
 })
 export class AccountCreatedComponent implements OnInit {
-  guest: Guest;
+  loan: Loan;
 
-  constructor(private guestService: GuestService) {}
+  constructor(private loanService: LoanService) {}
 
   ngOnInit(): void {
-    this.guest = this.guestService.guest;
+    this.loanService.data.subscribe(loan => {
+      this.loan = loan;
+    });
   }
 }

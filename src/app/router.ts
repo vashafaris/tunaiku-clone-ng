@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { AccountCreatedComponent } from './pages/account-created/account-created.component';
-import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {

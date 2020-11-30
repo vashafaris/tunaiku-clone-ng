@@ -2,23 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { LoanService } from 'src/app/shared/services/loan.store';
+
 @Component({
   selector: 'app-confirm-service-area',
   templateUrl: './confirm-service-area.component.html',
   styleUrls: ['./confirm-service-area.component.scss'],
 })
 export class ConfirmServiceAreaComponent implements OnInit {
-  form: FormGroup;
+  serviceAreaForm: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private loanService: LoanService, private router: Router) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      isPrimaryLocation: new FormControl(null, Validators.required),
+    this.serviceAreaForm = new FormGroup({
+      isCoveredArea: new FormControl(null, Validators.required),
     });
   }
 
   onSubmit(): void {
+    this.loanService.setIsCoveredArea(
+      this.serviceAreaForm.get('isCoveredArea').value,
+    );
     this.router.navigate(['/loan', 'create-account']);
   }
 }

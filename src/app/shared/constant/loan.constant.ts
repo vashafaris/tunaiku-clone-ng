@@ -1,0 +1,1 @@
+export const INTEREST = 1.531512000001532;
