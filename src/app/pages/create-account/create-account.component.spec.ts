@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MSiteWrapperModule } from 'src/app/shared/components/m-site-wrapper/m-site-wrapper.module';
 
 import { CreateAccountComponent } from './create-account.component';
 
@@ -8,9 +11,9 @@ describe('CreateAccountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateAccountComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, ReactiveFormsModule, MSiteWrapperModule],
+      declarations: [CreateAccountComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

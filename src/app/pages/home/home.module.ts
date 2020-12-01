@@ -5,16 +5,16 @@ import { HomeComponent } from './home.component';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
-import { HeroComponent } from './shared/hero/hero.component';
-import { StatisticsComponent } from './shared/statistics/statistics.component';
-import { TestimonialComponent } from './shared/testimonial/testimonial.component';
-import { AdvantagesComponent } from './shared/advantages/advantages.component';
-import { RatesAndFeesComponent } from './shared/rates-and-fees/rates-and-fees.component';
-import { AwardsComponent } from './shared/awards/awards.component';
-import { DownloadMobileComponent } from './shared/download-mobile/download-mobile.component';
-import { LoanEligibilityComponent } from './shared/loan-eligibility/loan-eligibility.component';
-import { LendingProcessComponent } from './shared/lending-process/lending-process.component';
-import { ServiceAreaComponent } from './shared/service-area/service-area.component';
+import { HeroComponent } from './shared/components/hero/hero.component';
+import { StatisticsComponent } from './shared/components/statistics/statistics.component';
+import { TestimonialComponent } from './shared/components/testimonial/testimonial.component';
+import { AdvantagesComponent } from './shared/components/advantages/advantages.component';
+import { RatesAndFeesComponent } from './shared/components/rates-and-fees/rates-and-fees.component';
+import { AwardsComponent } from './shared/components/awards/awards.component';
+import { DownloadMobileComponent } from './shared/components/download-mobile/download-mobile.component';
+import { LoanEligibilityComponent } from './shared/components/loan-eligibility/loan-eligibility.component';
+import { LendingProcessComponent } from './shared/components/lending-process/lending-process.component';
+import { ServiceAreaComponent } from './shared/components/service-area/service-area.component';
 
 @NgModule({
   declarations: [

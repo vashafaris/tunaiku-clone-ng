@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MNavbarModule } from '../m-navbar/m-navbar.module';
 
 import { MSiteWrapperComponent } from './m-site-wrapper.component';
 
@@ -8,9 +9,9 @@ describe('MSiteWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MSiteWrapperComponent ]
-    })
-    .compileComponents();
+      imports: [MNavbarModule],
+      declarations: [MSiteWrapperComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
