@@ -20,7 +20,6 @@ export class HeroComponent implements OnInit {
   ngOnInit(): void {}
 
   onLoanValueChange(event: MatSliderChange): void {
-    console.log(event);
     this.loanValueSliderChange.emit(event);
   }
 
