@@ -1,7 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatSliderModule } from '@angular/material/slider';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSliderChange, MatSliderModule } from '@angular/material/slider';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
+import { Loan } from 'src/app/shared/model/loan.model';
+import { LoanService } from 'src/app/shared/services/loan.store';
 
 import { HomeComponent } from './home.component';
 import { AdvantagesComponent } from './shared/components/advantages/advantages.component';
@@ -18,6 +20,8 @@ import { TestimonialComponent } from './shared/components/testimonial/testimonia
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let mockEvent: MatSliderChange;
+  let loanService: LoanService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -35,16 +39,46 @@ describe('HomeComponent', () => {
         RatesAndFeesComponent,
         AwardsComponent,
       ],
+      providers: [LoanService],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
+    loanService = TestBed.get(LoanService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call loan service methods when onLoanValueChange is called', () => {
+    const mockEventOnLoanValueChange = {
+      ...mockEvent,
+      value: 2,
+    };
+    const setLoanValueSpy = spyOn(loanService, 'setLoanValue');
+    const calculateDebtSpy = spyOn(loanService, 'calculateDebt');
+
+    component.onLoanValueChange(mockEventOnLoanValueChange);
+
+    expect(setLoanValueSpy).toHaveBeenCalled();
+    expect(calculateDebtSpy).toHaveBeenCalled();
+  });
+
+  it('should call loan service methods when onLoanDurationChange is called', () => {
+    const mockEventOnLoanDurationChange = {
+      ...mockEvent,
+      value: 2,
+    };
+    const setLoanDurationSpy = spyOn(loanService, 'setLoanDuration');
+    const calculateDebtSpy = spyOn(loanService, 'calculateDebt');
+
+    component.onLoanDurationChange(mockEventOnLoanDurationChange);
+
+    expect(setLoanDurationSpy).toHaveBeenCalled();
+    expect(calculateDebtSpy).toHaveBeenCalled();
   });
 });

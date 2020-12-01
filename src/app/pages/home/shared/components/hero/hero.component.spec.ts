@@ -10,6 +10,7 @@ describe('HeroComponent', () => {
   let component: HeroComponent;
   let de: DebugElement;
   let fixture: ComponentFixture<HeroComponent>;
+
   let mockLoan: Loan = {
     loanValue: 6,
     loanDuration: 10,
@@ -20,6 +21,8 @@ describe('HeroComponent', () => {
     phone: '123',
     discover: 'internet',
   };
+
+  let mockEvent: MatSliderChange;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -73,7 +76,6 @@ describe('HeroComponent', () => {
   });
 
   it('should emit an event when loan value slider changed', () => {
-    let mockEvent: MatSliderChange;
     const spy = spyOn(component.loanValueSliderChange, 'emit');
 
     component.onLoanValueChange(mockEvent);
@@ -82,7 +84,6 @@ describe('HeroComponent', () => {
   });
 
   it('should emit an event when loan duration slider changed', () => {
-    let mockEvent: MatSliderChange;
     const spy = spyOn(component.loanDurationSliderChange, 'emit');
 
     component.onLoanDurationChange(mockEvent);
