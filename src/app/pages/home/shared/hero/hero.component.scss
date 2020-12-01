@@ -1,0 +1,160 @@
+::ng-deep .mat-accent .mat-slider-track-fill,
+.mat-accent .mat-slider-thumb,
+.mat-accent .mat-slider-thumb-label {
+  background-color: #48a800;
+}
+
+::ng-deep .mat-slider-thumb {
+  background-color: #fff !important;
+  border: 3px solid #48a800 !important;
+}
+
+.landing-hero {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding: 5% 10%;
+  background-color: #fff;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    flex: 1;
+    margin-right: 260px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__woman {
+    position: absolute;
+    right: 20%;
+    flex: 0 0 10%;
+    opacity: 0.5;
+    transform: scaleX(-1);
+    margin-left: -180px;
+
+    @media only screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__content-footer {
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content-footer-text {
+    font-size: 12px;
+  }
+
+  &__content-footer-logos {
+    display: flex;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__content-footer-image {
+    display: block;
+  }
+
+  &__woman-img {
+    z-index: -1;
+  }
+
+  &__slider-container {
+    flex: 0 1 100%;
+    max-width: 350px;
+    min-width: 280px;
+  }
+
+  &__title {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+  }
+
+  &__card {
+    padding: 30px 24px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+
+  &__card--row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__card-title {
+    font-weight: bold;
+  }
+
+  &__card-subtitle {
+    font-weight: bold;
+    color: #08a800;
+    font-size: 20px;
+  }
+
+  &__card-info {
+    color: #6d7278;
+    margin-top: -10px;
+    margin-bottom: 40px;
+  }
+
+  &__card-slider {
+    width: 100%;
+  }
+
+  &__card-footer-content {
+    border-top: 1px solid #979797;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__card-footer-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__card-footer-subtitle {
+    color: #6d7278;
+  }
+
+  &__card-footer-total {
+    margin-top: 20px;
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    color: #08a800;
+  }
+
+  &__divider {
+    margin: 30px 0;
+  }
+
+  &__card-button {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+}

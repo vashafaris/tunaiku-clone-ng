@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MNavbarComponent } from './m-navbar.component';
+import { AwardsComponent } from './awards.component';
 
-describe('MNavbarComponent', () => {
-  let component: MNavbarComponent;
-  let fixture: ComponentFixture<MNavbarComponent>;
+describe('AwardsComponent', () => {
+  let component: AwardsComponent;
+  let fixture: ComponentFixture<AwardsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MNavbarComponent],
-    }).compileComponents();
+      declarations: [ AwardsComponent ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MNavbarComponent);
+    fixture = TestBed.createComponent(AwardsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

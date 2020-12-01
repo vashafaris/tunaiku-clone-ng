@@ -1,0 +1,47 @@
+.lending-process {
+  background-color: #fff;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 22px;
+  }
+
+  &__container {
+    display: flex;
+    width: 90%;
+  }
+
+  &__item {
+    flex: 1;
+    padding: 20px;
+
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin: 20px;
+
+      p {
+        color: #6d7278;
+        font-size: 12px;
+        margin: 10px 0;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background-image: url('/assets/images/svg/verified-blue.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 2px;
+        left: 0;
+      }
+    }
+  }
+}

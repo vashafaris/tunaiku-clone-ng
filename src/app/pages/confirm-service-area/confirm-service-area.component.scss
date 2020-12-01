@@ -1,3 +1,17 @@
+::ng-deep .mat-radio-container {
+  align-self: end;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #48a800;
+}
+
+::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #48a800;
+}
+
 .service-area {
   padding: 16px;
 
@@ -20,18 +34,4 @@
   &__button {
     margin-top: 20px;
   }
-}
-
-::ng-deep .mat-radio-container {
-  align-self: end;
-}
-
-::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #48a800;
-}
-
-::ng-deep
-  .mat-radio-button.mat-accent.mat-radio-checked
-  .mat-radio-outer-circle {
-  border-color: #48a800;
 }
