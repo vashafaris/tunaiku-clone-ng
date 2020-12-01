@@ -28,7 +28,7 @@ export class LoanService {
     this.update.next(data);
   }
 
-  setDefaultStore() {
+  setDefaultStore(): void {
     this.store = {
       loanValue: 2,
       loanDuration: 9,
@@ -41,31 +41,31 @@ export class LoanService {
     };
   }
 
-  setIsCoveredArea(isCoveredArea: boolean) {
+  setIsCoveredArea(isCoveredArea: boolean): void {
     this.setStore({
       isCoveredArea,
     });
   }
 
-  setName(name: string) {
+  setName(name: string): void {
     this.setStore({
       name,
     });
   }
 
-  setNik(nik: string) {
+  setNik(nik: string): void {
     this.setStore({
       nik,
     });
   }
 
-  setPhone(phone: string) {
+  setPhone(phone: string): void {
     this.setStore({
       phone,
     });
   }
 
-  setDiscover(discover: string) {
+  setDiscover(discover: string): void {
     this.setStore({
       discover,
     });
@@ -77,13 +77,13 @@ export class LoanService {
     });
   }
 
-  setLoanDuration(loanDuration: number) {
+  setLoanDuration(loanDuration: number): void {
     this.setStore({
       loanDuration,
     });
   }
 
-  calculateDebt() {
+  calculateDebt(): void {
     const debt = Math.floor(
       ((this.store.loanValue * 1000000) / this.store.loanDuration) * INTEREST,
     );

@@ -56,7 +56,7 @@ export class CreateAccountComponent implements OnInit {
     this.selectedTab = tab;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.loanService.setName(this.createAccountForm.get('name').value);
     this.loanService.setNik(this.createAccountForm.get('nik').value);
     this.loanService.setPhone(this.createAccountForm.get('phone').value);

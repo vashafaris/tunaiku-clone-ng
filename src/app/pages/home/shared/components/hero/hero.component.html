@@ -44,7 +44,10 @@
       <div class="Card-body">
         <div class="landing-hero__card--row">
           <span class="landing-hero__card-title">Jumlah Pinjaman</span>
-          <span class="landing-hero__card-subtitle">
+          <span
+            class="landing-hero__card-subtitle"
+            id="landing-hero__loan-value"
+          >
             {{ loan?.loanValue }} Juta
           </span>
         </div>
@@ -64,7 +67,10 @@
         </div>
         <div class="landing-hero__card--row">
           <span class="landing-hero__card-title">Lama Pinjaman</span>
-          <span class="landing-hero__card-subtitle">
+          <span
+            class="landing-hero__card-subtitle"
+            id="landing-hero__loan-duration"
+          >
             {{ loan?.loanDuration }} Bulan
           </span>
         </div>
@@ -87,7 +93,10 @@
           <p class="landing-hero__card-footer-subtitle">
             *sudah termasuk bunga dan biaya admin
           </p>
-          <span class="landing-hero__card-footer-total">
+          <span
+            class="landing-hero__card-footer-total"
+            id="landing-hero__debt-value"
+          >
             {{ loan?.debt | currency: 'Rp':'symbol':'3.0' }}
           </span>
         </div>
