@@ -1,0 +1,33 @@
+.statistic {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #f7f7f7;
+
+  &__container {
+    display: flex;
+    width: 80%;
+  }
+
+  &__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    height: 36px;
+    width: 36px;
+    margin-right: 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__description {
+    color: #a1a8ae;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<main class="Content landing-page">
+  <app-hero
+    [loan]="loan"
+    (loanValueSliderChange)="onLoanValueChange($event)"
+    (loanDurationSliderChange)="onLoanDurationChange($event)"
+  ></app-hero>
+
+  <app-statistics></app-statistics>
+
+  <app-testimonial></app-testimonial>
+
+  <app-download-mobile></app-download-mobile>
+
+  <app-advantages></app-advantages>
+
+  <app-loan-eligibility></app-loan-eligibility>
+
+  <app-lending-process></app-lending-process>
+
+  <app-service-area></app-service-area>
+
+  <app-rates-and-fees></app-rates-and-fees>
+
+  <app-awards></app-awards>
+</main>

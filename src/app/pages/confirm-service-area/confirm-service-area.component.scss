@@ -1,0 +1,37 @@
+::ng-deep .mat-radio-container {
+  align-self: end;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #48a800;
+}
+
+::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #48a800;
+}
+
+.service-area {
+  padding: 16px;
+
+  &__image {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  &__text-option {
+    white-space: normal;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  &__button {
+    margin-top: 20px;
+  }
+}

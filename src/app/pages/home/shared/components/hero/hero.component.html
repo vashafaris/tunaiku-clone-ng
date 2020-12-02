@@ -1,0 +1,115 @@
+<div class="landing-hero">
+  <div class="landing-hero__content">
+    <div class="landing-hero__content-main">
+      <h1 class="landing-hero__title">Ajukan Pinjaman Online Tanpa Jaminan</h1>
+      <p class="landing-hero__subtitle">
+        Hanya dengan KTP, dapatkan kredit tanpa agunan hingga
+        <strong>Rp20.000.000</strong>
+      </p>
+    </div>
+    <div class="landing-hero__content-footer">
+      <div class="landing-hero__content-footer-text">
+        <p>
+          Tunaiku adalah produk dari Bank Amar yang terdaftar dan diawasi oleh
+          OJK sejak 2014
+        </p>
+      </div>
+      <div class="landing-hero__content-footer-logos">
+        <a href="">
+          <img
+            src="assets/images/svg/Amar-Bank.svg"
+            alt=""
+            class="landing-hero__content-footer-image"
+          />
+        </a>
+        <a href="">
+          <img
+            src="assets/images/svg/OJK.svg"
+            alt=""
+            class="landing-hero__content-footer-image"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="landing-hero__woman">
+    <img
+      src="assets/images/png/homepage-woman.png"
+      alt="landing-woman"
+      class="landing-hero__woman-img"
+    />
+  </div>
+  <div class="landing-hero__slider-container">
+    <div class="Card Card--elevated landing-hero__card">
+      <div class="Card-body">
+        <div class="landing-hero__card--row">
+          <span class="landing-hero__card-title">Jumlah Pinjaman</span>
+          <span
+            class="landing-hero__card-subtitle"
+            id="landing-hero__loan-value"
+          >
+            {{ loan?.loanValue }} Juta
+          </span>
+        </div>
+        <div class="landing-hero__card--row">
+          <mat-slider
+            min="2"
+            max="20"
+            step="1"
+            value="2"
+            class="landing-hero__card-slider"
+            (input)="onLoanValueChange($event)"
+          ></mat-slider>
+        </div>
+        <div class="landing-hero__card--row landing-hero__card-info">
+          <p>2 Juta</p>
+          <p>20 Juta</p>
+        </div>
+        <div class="landing-hero__card--row">
+          <span class="landing-hero__card-title">Lama Pinjaman</span>
+          <span
+            class="landing-hero__card-subtitle"
+            id="landing-hero__loan-duration"
+          >
+            {{ loan?.loanDuration }} Bulan
+          </span>
+        </div>
+        <div class="landing-hero__card--row">
+          <mat-slider
+            min="6"
+            max="20"
+            step="1"
+            value="9"
+            class="landing-hero__card-slider"
+            (input)="onLoanDurationChange($event)"
+          ></mat-slider>
+        </div>
+        <div class="landing-hero__card--row landing-hero__card-info">
+          <p>6 Bulan</p>
+          <p>20 Bulan</p>
+        </div>
+        <div class="landing-hero__card-footer-content">
+          <span class="landing-hero__card-footer-title">Cicilan per Bulan</span>
+          <p class="landing-hero__card-footer-subtitle">
+            *sudah termasuk bunga dan biaya admin
+          </p>
+          <span
+            class="landing-hero__card-footer-total"
+            id="landing-hero__debt-value"
+          >
+            {{ loan?.debt | currency: 'Rp':'symbol':'3.0' }}
+          </span>
+        </div>
+      </div>
+
+      <div class="Card-footer">
+        <a
+          routerLink="/loan/confirm-service-area"
+          class="Button Button--primary Button--fullWidth landing-hero__card-button"
+        >
+          Ajukan Pinjaman
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

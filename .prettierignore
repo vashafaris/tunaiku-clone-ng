@@ -1,0 +1,11 @@
+# Apparently we need ignore some file
+# node_modules ignored by default, but just to be sure
+node_modules
+dist
+build
+.build
+#  We need to ignore styles folder because it produce some bugs when formating base styles on tnk-desktop
+styles
+vendor
+
+# etc...

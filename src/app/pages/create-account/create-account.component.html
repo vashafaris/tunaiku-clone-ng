@@ -1,0 +1,228 @@
+<app-m-site-wrapper [headerTitle]="'Ajukan Pinjaman'">
+  <div class="card-pinjaman">
+    <div class="row--space-between">
+      <div>
+        <p class="card-pinjaman__text">Total Pinjaman</p>
+        <strong id="card-pinjaman__text__loan-value">
+          Rp {{ loan.loanValue }} Juta
+        </strong>
+      </div>
+    </div>
+    <div class="row--space-between">
+      <div>
+        <p class="card-pinjaman__text">Cicilan per Bulan</p>
+        <strong id="card-pinjaman__text__debt-value">
+          {{ loan.debt | currency: 'Rp ':'symbol':'3.0' }}
+        </strong>
+      </div>
+      <div class="card-pinjaman--flex-end">
+        <p class="card-pinjaman__text">Lama cicilan</p>
+        <strong id="card-pinjaman__text__loan-duration">
+          {{ loan.loanDuration }} Bulan
+        </strong>
+      </div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div
+      class="tab-bar__button"
+      [ngClass]="{
+        'tab-bar__button--active': selectedTab === tabType.CreateAccount
+      }"
+      (click)="tabHandler(tabType.CreateAccount)"
+    >
+      <span class="tab-bar__button-text">Buat Akun</span>
+    </div>
+    <div
+      class="tab-bar__button"
+      [ngClass]="{
+        'tab-bar__button--active': selectedTab === tabType.SignIn
+      }"
+      (click)="tabHandler(tabType.SignIn)"
+    >
+      <span class="tab-bar__button-text">Masuk Akun</span>
+    </div>
+  </div>
+  <div class="form">
+    <div *ngIf="selectedTab === tabType.CreateAccount; else signIn">
+      <form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name" class="form__label">Nama sesuai KTP*</label>
+          <input
+            type="text"
+            formControlName="name"
+            id="name"
+            class="form__input"
+          />
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('name').hasError('required') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
+            "
+          >
+            Nama lengkap wajib diisi
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('name').hasError('pattern') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
+            "
+          >
+            Nama lengkap hanya menggunakan alphabet
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('name').hasError('maxlength') &&
+              createAccountForm.get('name').touched &&
+              createAccountForm.get('name').dirty
+            "
+          >
+            Nama lengkap maksimal 50 karakter
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="form__label">Nomor KTP (NIK)*</label>
+          <input
+            type="tel"
+            formControlName="nik"
+            id="nik"
+            class="form__input"
+          />
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('nik').hasError('required') &&
+              createAccountForm.get('nik').touched &&
+              createAccountForm.get('nik').dirty
+            "
+          >
+            Nomor KTP wajib diisi
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              (createAccountForm.get('nik').hasError('minlength') ||
+                createAccountForm.get('nik').hasError('maxlength')) &&
+              createAccountForm.get('nik').touched
+            "
+          >
+            Nomor KTP harus 16 digit
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('nik').hasError('pattern') &&
+              createAccountForm.get('nik').touched
+            "
+          >
+            Nomor KTP harus menggunakan angka
+            <br />
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="form__label" class="form__label">
+            Nomor Handphone*
+          </label>
+          <input type="tel" formControlName="phone" class="form__input" />
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('phone').hasError('required') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
+            "
+          >
+            Nomor handphone wajib diisi
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('phone').hasError('pattern') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
+            "
+          >
+            Nomor handphone wajib menggunakan angka
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('phone').hasError('minlength') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
+            "
+          >
+            Nomor handphone minimal 9 karakter
+            <br />
+          </span>
+          <span
+            class="form__validation"
+            *ngIf="
+              createAccountForm.get('phone').hasError('maxlength') &&
+              createAccountForm.get('phone').touched &&
+              createAccountForm.get('phone').dirty
+            "
+          >
+            Nomor handphone maksimal 12 karakter
+            <br />
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="form__label">Dari mana Anda mengetahui Tunaiku?*</label>
+          <select class="form__select" formControlName="discover">
+            <option value="">Pilih salah satu</option>
+            <option value="internet">Internet</option>
+            <option value="teman">Teman</option>
+            <option value="radio">Radio</option>
+            <option value="selebaran-brosur">Selebaran/Brosur</option>
+            <option value="televisi">Televisi</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+        <button
+          class="Button Button--primary Button--fullWidth"
+          type="submit"
+          [ngClass]="{ 'is-disabled': !createAccountForm.valid }"
+        >
+          Buat Akun!
+        </button>
+      </form>
+    </div>
+    <ng-template #signIn>
+      <div class="sign-in">
+        <p class="sign-in__title">Masuk ke Akun Anda</p>
+        <p class="sign-in__subtitle">Nomor Handphone</p>
+        <form [formGroup]="signInForm">
+          <div class="form-group">
+            <input type="text" formControlName="phone" class="form__input" />
+          </div>
+        </form>
+        <button
+          class="Button Button--primary Button--rounded Button--fullWidth"
+        >
+          MASUK
+        </button>
+        <div class="sign-in--center">
+          <a class="sign-in__forget">Lupa atau ubah nomor handphone?</a>
+          <div class="sign-in__information">
+            <p>
+              Untuk keamanan data Anda, pastikan ikon tampil di halaman URL
+              Tunaiku
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</app-m-site-wrapper>

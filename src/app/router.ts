@@ -1,21 +1,31 @@
 import { Routes } from '@angular/router';
-import { AccountCreatedComponent } from './presentation/pages/account-created/account-created.component';
-import { ConfirmServiceAreaComponent } from './presentation/pages/confirm-service-area/confirm-service-area.component';
-import { CreateAccountComponent } from './presentation/pages/create-account/create-account.component';
-import { HomeComponent } from './presentation/pages/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./pages/home/home.module').then(m => m.HomeModule),
+  },
   {
     path: 'loan/confirm-service-area',
-    component: ConfirmServiceAreaComponent,
+    loadChildren: () =>
+      import('./pages/confirm-service-area/confirm-service-area.module').then(
+        m => m.ConfirmServiceAreaModule,
+      ),
   },
   {
     path: 'loan/create-account',
-    component: CreateAccountComponent,
+    loadChildren: () =>
+      import('./pages/create-account/create-account.module').then(
+        m => m.CreateAccountModule,
+      ),
   },
   {
     path: 'loan/account-created',
-    component: AccountCreatedComponent,
+    loadChildren: () =>
+      import('./pages/account-created/account-created.module').then(
+        m => m.AccountCreatedModule,
+      ),
   },
 ];

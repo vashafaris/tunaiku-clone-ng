@@ -1,0 +1,49 @@
+.loan-eligibility {
+  padding: 60px;
+  background-color: #1d7be2;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 22px;
+  }
+
+  &__container {
+    width: 80%;
+    display: flex;
+    margin-top: 24px;
+  }
+
+  &__item {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      font-weight: 500;
+      font-size: 17px;
+      margin: 25px;
+      padding-left: 50px;
+      position: relative;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background-image: url('/assets/images/svg/verified.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: -2px;
+        left: 0;
+      }
+    }
+  }
+}
