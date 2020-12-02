@@ -3,17 +3,23 @@
     <div class="row--space-between">
       <div>
         <p class="card-pinjaman__text">Total Pinjaman</p>
-        <strong>Rp {{ loan.loanValue }} Juta</strong>
+        <strong id="card-pinjaman__text__loan-value">
+          Rp {{ loan.loanValue }} Juta
+        </strong>
       </div>
     </div>
     <div class="row--space-between">
       <div>
         <p class="card-pinjaman__text">Cicilan per Bulan</p>
-        <strong>{{ loan.debt | currency: 'Rp ':'symbol':'3.0' }}</strong>
+        <strong id="card-pinjaman__text__debt-value">
+          {{ loan.debt | currency: 'Rp ':'symbol':'3.0' }}
+        </strong>
       </div>
       <div class="card-pinjaman--flex-end">
         <p class="card-pinjaman__text">Lama cicilan</p>
-        <strong>{{ loan.loanDuration }} Bulan</strong>
+        <strong id="card-pinjaman__text__loan-duration">
+          {{ loan.loanDuration }} Bulan
+        </strong>
       </div>
     </div>
   </div>

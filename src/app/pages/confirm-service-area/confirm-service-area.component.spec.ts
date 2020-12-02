@@ -3,10 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MSiteWrapperModule } from 'src/app/shared/components/m-site-wrapper/m-site-wrapper.module';
-import { LoanService } from 'src/app/shared/services/loan.store';
 
 import { ConfirmServiceAreaComponent } from './confirm-service-area.component';
+
+import { MSiteWrapperModule } from 'src/app/shared/components/m-site-wrapper/m-site-wrapper.module';
+import { LoanService } from 'src/app/shared/services/loan.store';
 
 describe('ConfirmServiceAreaComponent', () => {
   let component: ConfirmServiceAreaComponent;

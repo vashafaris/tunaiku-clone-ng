@@ -1,9 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSliderChange, MatSliderModule } from '@angular/material/slider';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
-import { Loan } from 'src/app/shared/model/loan.model';
-import { LoanService } from 'src/app/shared/services/loan.store';
 
 import { HomeComponent } from './home.component';
 import { AdvantagesComponent } from './shared/components/advantages/advantages.component';
@@ -16,6 +13,9 @@ import { RatesAndFeesComponent } from './shared/components/rates-and-fees/rates-
 import { ServiceAreaComponent } from './shared/components/service-area/service-area.component';
 import { StatisticsComponent } from './shared/components/statistics/statistics.component';
 import { TestimonialComponent } from './shared/components/testimonial/testimonial.component';
+
+import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
+import { LoanService } from 'src/app/shared/services/loan.store';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

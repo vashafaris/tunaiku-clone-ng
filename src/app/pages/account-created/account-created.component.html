@@ -6,15 +6,19 @@
       <div class="success__info-container">
         <div class="success__info-item">
           <p>Nama calon peminjam</p>
-          <strong>{{ loan.name }}</strong>
+          <strong id="success__info-item__name">{{ loan.name }}</strong>
         </div>
         <div class="success__info-item">
           <p>Total Pinjaman</p>
-          <strong>{{ loan.loanValue }} Juta</strong>
+          <strong id="success__info-item__loan-value">
+            {{ loan.loanValue }} Juta
+          </strong>
         </div>
         <div class="success__info-item">
           <p>Lama Cicilan</p>
-          <strong>{{ loan.loanDuration }} Bulan</strong>
+          <strong id="success__info-item__loan-duration">
+            {{ loan.loanDuration }} Bulan
+          </strong>
         </div>
       </div>
     </div>

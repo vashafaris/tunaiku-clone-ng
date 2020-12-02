@@ -1,21 +1,19 @@
-import {
-  async,
-  ComponentFixture,
-  inject,
-  TestBed,
-} from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MSiteWrapperModule } from 'src/app/shared/components/m-site-wrapper/m-site-wrapper.module';
-import { Loan } from 'src/app/shared/model/loan.model';
-import { LoanService } from 'src/app/shared/services/loan.store';
 
 import { CreateAccountComponent } from './create-account.component';
 import { TabType } from './create-account.enum';
 
+import { MSiteWrapperModule } from 'src/app/shared/components/m-site-wrapper/m-site-wrapper.module';
+import { Loan } from 'src/app/shared/model/loan.model';
+import { LoanService } from 'src/app/shared/services/loan.store';
+
 describe('CreateAccountComponent', () => {
   let component: CreateAccountComponent;
+  let de: DebugElement;
   let fixture: ComponentFixture<CreateAccountComponent>;
   let loanService: LoanService;
   let routerSpy = { navigate: jasmine.createSpy('navigate') };
@@ -43,6 +41,7 @@ describe('CreateAccountComponent', () => {
     fixture = TestBed.createComponent(CreateAccountComponent);
     loanService = TestBed.get(LoanService);
     component = fixture.componentInstance;
+    de = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -56,6 +55,39 @@ describe('CreateAccountComponent', () => {
       expect(loan).toEqual(mockLoan);
     });
   }));
+
+  it('should display correct loan value', () => {
+    const loanValueDisplay = de.nativeElement.querySelector(
+      '#card-pinjaman__text__loan-value',
+    );
+    component.loan = mockLoan;
+
+    fixture.detectChanges();
+
+    expect(loanValueDisplay.innerHTML).toBe(' Rp 2 Juta ');
+  });
+
+  it('should display correct loan duration', () => {
+    const loanDurationDisplay = de.nativeElement.querySelector(
+      '#card-pinjaman__text__loan-duration',
+    );
+    component.loan = mockLoan;
+
+    fixture.detectChanges();
+
+    expect(loanDurationDisplay.innerHTML).toBe(' 9 Bulan ');
+  });
+
+  it('should display correct debt value', () => {
+    const debtValueDisplay = de.nativeElement.querySelector(
+      '#card-pinjaman__text__debt-value',
+    );
+    component.loan = mockLoan;
+
+    fixture.detectChanges();
+
+    expect(debtValueDisplay.innerHTML).toBe(' Rp 340,336 ');
+  });
 
   it('should change selectedTab property when tabHandler is called', () => {
     const mockSelectedTab = TabType.CreateAccount;
