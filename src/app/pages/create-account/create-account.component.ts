@@ -13,7 +13,7 @@ import { LoanService } from 'src/app/shared/services/loan.store';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
-  public tabType: typeof TabType = TabType;
+  tabType: typeof TabType = TabType;
   selectedTab: TabType = TabType.CreateAccount;
 
   loan: Loan;

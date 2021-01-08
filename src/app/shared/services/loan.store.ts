@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { INTEREST } from '../constant/loan.constant';
 
+import { INTEREST } from '../constant/loan.constant';
 import { Loan } from '../model/loan.model';
 
 @Injectable({
